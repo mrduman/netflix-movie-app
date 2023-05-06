@@ -1,11 +1,15 @@
 .navbar {
-  color: aliceblue;
-  background-color: var(--main-color);
+  color: white;
   font-size: 14px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background: var(--main-color);
+  }
 
   .container {
     display: flex;

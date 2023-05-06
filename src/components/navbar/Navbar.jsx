@@ -2,9 +2,27 @@ import "./navbar.scss"
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { useEffect, useState } from "react";
 function Navbar() {
+
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY === 0) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+        window.addEventListener("scroll", handleScroll)
+        return () => {
+            window.removeEventListener("scroll", handleScroll)
+        }
+    }, [isScrolled])
+
     return (
-        <div className='navbar'>
+        <div className={["navbar", isScrolled ? "scrolled" : ""].join(" ")}>
             <div className="container">
                 <div className="left">
                     <img
