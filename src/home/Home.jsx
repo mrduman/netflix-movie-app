@@ -10,6 +10,7 @@ function Home() {
             <Navbar />
             <Featured type={"series"} />
             <List />
+            <List />
         </div>
     )
 }
